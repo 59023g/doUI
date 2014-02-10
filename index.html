@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html ng-app>
+
+<head>
+    <title>About</title>
+    <meta content="| / | / | X | \ | \ |" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+    <link href="css/style.css" rel="stylesheet" type="text" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+</head>
+
+<style>
+</style>
+
+<body>
+    <img src="img/joe.png" style="max-height:75%;width:100%">
+
+    <table id="ui">
+        <tr>
+            <td>02:14</td>
+
+
+
+
+
+    </table>
+    <div id="ui">
+        <ul>
+            <ul class="timer">
+                <li class="time">02:14</li>
+            </ul>
+            <li>
+                <ul class="teamOneUIWrap">
+                    <li class="teamOneUI">{{teamOne}}</li>
+                    <li class="scoreOneUI">1</li>
+                </ul>
+            </li>
+            <li>
+                <ul class="teamTwoUIWrap">
+                    <li class="teamTwoUI">{{teamTwo}}</li>
+                    <li class="scoreTwoUI">4</li>
+                </ul>
+            </li>
+
+    </div>
+
+
+
+    <div id="controls">
+        <ul class="teamOne">
+            <li>
+                <input type="text" ng-model="teamOne" placeholder="Team 1">
+            </li>
+            <li class="score">
+                Add Score
+                <span class="sub penalty">-</span>
+            </li>
+            <li class="penalty">Penalty</li>
+        </ul>
+        <ul class="clock">
+            <li class="score">Start Clock</li>
+            <li class="penalty">Stop Clock</li>
+            <li>Custom Time</li>
+        </ul>
+        <ul class="teamTwo">
+            <li>
+                <input type="text" ng-model="teamTwo" placeholder="Team 2">
+            </li>
+            <li class="score">
+                Add Score
+                <span class="sub penalty">-</span>
+            </li>
+
+            <li class="penalty">Penalty</li>
+        </ul>
+        <ul class="mgmt">
+            <li>New Game</li>
+
+        </ul>
+        <br style="clear:both;" />
+    </div>
+
+
+
+
+</body>
+
+</html>
