@@ -1,0 +1,102 @@
+<html ng-app="doUI"><head>
+
+    <title>About</title>
+    <meta content="| / | / | X | \ | \ |" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+    <link href="css/style.css" rel="stylesheet" type="text">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
+    <script src="js/timer.js"></script>
+    <script>
+    angular.module('doUI', ['timer']);
+
+    function doController($scope) {
+
+        $scope.timerRunning = true;
+        var timeStarted = false;
+        $scope.countdownVal = 900;
+        var teamOne;
+
+
+        $scope.startClock = function() {
+            if (!timeStarted) {
+                $scope.$broadcast('timer-start');
+                $scope.timerRunning = true;
+                timeStarted = true
+            } else if ((timeStarted) && (!$scope.timerRunning)) {
+                $scope.$broadcast('timer-resume');
+                $scope.timerRunning = true;
+            }
+
+        };
+
+        $scope.stopClock = function() {
+            if ((timeStarted) && ($scope.timerRunning)) {
+                $scope.$broadcast('timer-stop');
+                $scope.timerRunning = false;
+            }
+
+        };
+
+        $scope.resetClock = function() {
+            if ((!$scope.timerRunning))
+                $scope.$broadcast('timer-reset');
+
+        }
+
+        $scope.addPoint = function() {
+            teamOne.score += 1;
+            console.log(teamOne);
+        }
+
+
+        $scope.$on('timer-stopped', function(event, data) {
+            timeStarted = true;
+        });
+    }
+
+    doController.$inject = ['$scope'];
+    </script>
+<style>
+
+li {
+    margin: 10px 0;
+    padding: 5px;
+    color: #333;
+}
+li.control {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+</style></head>
+
+
+<body ng-controller="doController">
+    <div id="ui">
+        <ul class="timerNew">
+            <li>
+                <timer interval="1000" countdown="countdownVal" autostart="false">{{millis | date:'mm:ss'}}</timer>
+            </li>
+
+            <li ng-click="startClock()" ng-disabled="timerRunning" class="control">Start/Resume</li>
+            <li ng-click="stopClock()" ng-disabled="!timerRunning" class="control">Stop</li>
+            <li ng-click="resetClock()" class="control">Reset</li>
+
+        </ul>
+        <ul>
+            <li ng-bind="teamOne"></li>
+            <li ng-bind="teamTwo"></li>
+            <li class="control">
+                <input type="text" ng-model="teamOne" placeholder="Team 1">
+            </li>
+            <li ng-click="addPoint()">Add point</li>
+            <li class="control">
+                <input type="text" ng-model="teamTwo" placeholder="Team 2">
+            </li>
+            <li>
+
+    </li></ul></div>
+
+
+
+</body></html>
