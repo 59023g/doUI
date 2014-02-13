@@ -1,4 +1,6 @@
-<html ng-app="doUI"><head>
+<html ng-app="doUI">
+
+<head>
 
     <title>About</title>
     <meta content="| / | / | X | \ | \ |" name="description">
@@ -12,10 +14,21 @@
 
     function doController($scope) {
 
+
+
+        $scope.teams = [{
+            'name': '',
+            'score': 0
+        }, {
+            'name': '',
+            'score': 0
+        }]
+
+
+
         $scope.timerRunning = true;
         var timeStarted = false;
         $scope.countdownVal = 900;
-        var teamOne;
 
 
         $scope.startClock = function() {
@@ -45,30 +58,25 @@
         }
 
         $scope.addPoint = function() {
-            teamOne.score += 1;
-            console.log(teamOne);
+
+
         }
-
-
-        $scope.$on('timer-stopped', function(event, data) {
-            timeStarted = true;
-        });
     }
 
     doController.$inject = ['$scope'];
     </script>
-<style>
-
-li {
-    margin: 10px 0;
-    padding: 5px;
-    color: #333;
-}
-li.control {
-    cursor: pointer;
-    background-color: aliceblue;
-}
-</style></head>
+    <style>
+    li {
+        margin: 10px 0;
+        padding: 5px;
+        color: #333;
+    }
+    li.control {
+        cursor: pointer;
+        background-color: aliceblue;
+    }
+    </style>
+</head>
 
 
 <body ng-controller="doController">
@@ -84,19 +92,27 @@ li.control {
 
         </ul>
         <ul>
-            <li ng-bind="teamOne"></li>
-            <li ng-bind="teamTwo"></li>
-            <li class="control">
-                <input type="text" ng-model="teamOne" placeholder="Team 1">
-            </li>
-            <li ng-click="addPoint()">Add point</li>
-            <li class="control">
-                <input type="text" ng-model="teamTwo" placeholder="Team 2">
-            </li>
-            <li>
-
-    </li></ul></div>
+            <li ng-repeat="team in teams">
+                <span>{{team.name}} &nbsp;&nbsp;{{team.score}}</span>
 
 
+                <li class="control">
+                    <input type="text" ng-model="teams[0].name" placeholder="">
+                </li>
 
-</body></html>
+                <li class="control" ng-click="teams[0].score = teams[0].score + 1" ng-model="teams[0].score">Add point</li>
+
+                <li class="control">
+                    <input type="text" ng-model="teams[1].name" placeholder="">
+
+                </li>
+                <li class="control" ng-click="teams[1].score = teams[1].score + 1" ng-model="teams[1].score">Add point</li>
+
+        </ul>
+    </div>
+
+
+
+</body>
+
+</html>
