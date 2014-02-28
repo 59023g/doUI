@@ -2,7 +2,8 @@
  	//modules doUI depends on
  	'timer', 
  	'ngRoute',
- 	'doControllers'
+ 	'doController',
+ 	'doServices'
  	]);
 
 
