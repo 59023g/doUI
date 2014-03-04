@@ -1,9 +1,0 @@
-<ul class="timerNew">
-    <li>
-        <timer interval="1000" countdown="countdownVal" autostart="false">{{millis | date:'mm:ss'}}</timer>
-    </li>
-    <li ng-click="startClock()" ng-disabled="timerRunning" class="control">Start/Resume</li>
-    <li ng-click="stopClock()" ng-disabled="!timerRunning" class="control">Stop</li>
-    <li ng-click="resetClock()" class="control">Reset</li>
-
-</ul>

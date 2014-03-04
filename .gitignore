@@ -1,3 +1,2 @@
-model?
-/app/css
-/app/lib
+/public/bower_components
+node_modules
