@@ -1,18 +1,22 @@
 doctype html
-html
+html(ng-app="doUI")
   head
+    
     title= title
     link(rel='stylesheet', href='/css/style.css')
 
-  body(ng-app="doUI")
-    input(type='text', ng-model='team', placeholder='Enter team name')
-      span {{team}}
+  body(ng-view)
 
-    link(rel='javascript', href='/bower_components/angular/angular.min.js')
-    link(rel='javascript', href='/bower_components/angular-resource/angular-resource.min.js')
-    link(rel='javascript', href='/bower_components/angular-route/angular-route.min.js')
 
-    link(rel='javascript', href='/js/app.js')
-    link(rel='javascript', href='/js/controllers.js')
-    link(rel='javascript', href='/js/timer.js')
-    link(rel='javascript', href='/js/services.js')
+    script(type='text/javascript', src='/bower_components/angular/angular.min.js')
+    script(type='text/javascript', src='/bower_components/angular-resource/angular-resource.min.js')
+    script(type='text/javascript', src='/bower_components/angular-cookies/angular-cookies.js')
+    script(type='text/javascript', src='/bower_components/angular-sanitize/angular-sanitize.js')
+    script(type='text/javascript', src='/bower_components/angular-route/angular-route.min.js')
+
+
+    script(type='text/javascript', src='/js/app.js')
+    script(type='text/javascript', src='/js/controllers/doController.js')
+    script(type='text/javascript', src='/js/directives/timer.js')
+    script(type='text/javascript', src='/js/services/services.js')
+
