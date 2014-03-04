@@ -10,7 +10,9 @@
     "jade": "latest",
     "stylus": "latest",
     "mongoose": "*",
-    "lodash": "latest"
+    "lodash": "latest",
+    "connect-mongo": "*",
+    "nib": "latest"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
