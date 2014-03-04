@@ -11,5 +11,9 @@
     "stylus": "latest",
     "mongoose": "*",
     "lodash": "latest"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "bower": "latest"
   }
 }
