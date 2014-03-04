@@ -1,16 +1,16 @@
 'use strict';
 
 angular.module('doUI', [
+  //'ngCookies',
   'timer',
   'ngResource',
-  'ngroute',
-  'doController'
-  //'doServices'
+  'ngSanitize',
+  'ngRoute'
 ])
-  .config(function($routeProvider, $locationProvider, $httpProvider) {
+  .config(function ($routeProvider, $httpProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: './partials/doUI',
+        templateUrl: 'partials/doUI',
         controller: 'doController'
       })
       .otherwise({
@@ -18,4 +18,4 @@ angular.module('doUI', [
       });
   });
 
-$locationProvider.html5Mode(true);
+
